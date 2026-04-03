@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import TechStack from '../components/TechStack.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
 
 const features = [
   {
@@ -60,8 +65,11 @@ const stats = [
         <span class="text-indigo-400">Z</span>erabit<span class="text-indigo-400">.</span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-        <a href="#features" class="hover:text-white transition-colors duration-200">Services</a>
+        <a href="#services" class="hover:text-white transition-colors duration-200">Services</a>
+        <a href="#process" class="hover:text-white transition-colors duration-200">Process</a>
+        <a href="#tech-stack" class="hover:text-white transition-colors duration-200">Tech Stack</a>
         <a href="#about" class="hover:text-white transition-colors duration-200">About</a>
+        <a href="#faq" class="hover:text-white transition-colors duration-200">FAQ</a>
         <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
       </div>
       <a
@@ -117,7 +125,7 @@ const stats = [
               </svg>
             </a>
             <a
-              href="#features"
+              href="#services"
               class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white text-base font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-200"
             >
               See what we do
@@ -137,11 +145,14 @@ const stats = [
       </div>
     </section>
 
-    <!-- Features / Value Props -->
+    <!-- Services (new) -->
+    <Services />
+
+    <!-- Features / Why Zerabit -->
     <section id="features" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 reveal-up">
-          <span class="inline-block mb-3 text-indigo-400 text-sm font-semibold uppercase tracking-wider">What we offer</span>
+          <span class="inline-block mb-3 text-indigo-400 text-sm font-semibold uppercase tracking-wider">Why Zerabit</span>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight">
             Why teams choose Zerabit
           </h2>
@@ -169,6 +180,15 @@ const stats = [
         </div>
       </div>
     </section>
+
+    <!-- Process (new) -->
+    <Process />
+
+    <!-- Tech Stack (new) -->
+    <TechStack />
+
+    <!-- Testimonials (new) -->
+    <Testimonials />
 
     <!-- Mid-page CTA / About -->
     <section id="about" class="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8 bg-gray-950">
@@ -205,6 +225,9 @@ const stats = [
         </a>
       </div>
     </section>
+
+    <!-- FAQ (new) -->
+    <FAQ />
 
     <!-- Contact / Bottom CTA -->
     <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
@@ -247,9 +270,13 @@ const stats = [
         <a href="/" class="flex items-center gap-1 text-lg font-bold tracking-tight text-white">
           <span class="text-indigo-400">Z</span>erabit<span class="text-indigo-400">.</span>
         </a>
-        <nav class="flex flex-wrap justify-center gap-8 text-sm text-gray-500" aria-label="Footer navigation">
-          <a href="#features" class="hover:text-white transition-colors duration-200">Services</a>
+        <nav class="flex flex-wrap justify-center gap-6 text-sm text-gray-500" aria-label="Footer navigation">
+          <a href="#services" class="hover:text-white transition-colors duration-200">Services</a>
+          <a href="#process" class="hover:text-white transition-colors duration-200">Process</a>
+          <a href="#tech-stack" class="hover:text-white transition-colors duration-200">Tech Stack</a>
+          <a href="#testimonials" class="hover:text-white transition-colors duration-200">Testimonials</a>
           <a href="#about" class="hover:text-white transition-colors duration-200">About</a>
+          <a href="#faq" class="hover:text-white transition-colors duration-200">FAQ</a>
           <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
         </nav>
         <div class="flex items-center gap-5">
