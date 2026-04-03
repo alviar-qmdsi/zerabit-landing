@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const posts = [
+  {
+    title: 'How We Cut Infrastructure Costs by 40% Without Touching a Line of Product Code',
+    excerpt: 'A behind-the-scenes look at the cloud cost audit process we ran for a Series B SaaS company — and the levers we pulled to get a dramatic reduction in their AWS bill.',
+    category: 'Cloud & DevOps',
+    date: 'March 28, 2026',
+    readTime: '6 min read',
+    gradient: 'from-sky-500 to-blue-600',
+    slug: 'cut-infrastructure-costs-40-percent',
+  },
+  {
+    title: 'Why We Chose Astro for Our Clients\' Marketing Sites (and When We Don\'t)',
+    excerpt: 'Astro has become our go-to for marketing and landing page work. Here\'s why it dominates for content-heavy sites — and the cases where we reach for something else.',
+    category: 'Engineering',
+    date: 'March 14, 2026',
+    readTime: '8 min read',
+    gradient: 'from-indigo-500 to-violet-600',
+    slug: 'why-we-chose-astro-marketing-sites',
+  },
+  {
+    title: 'The Discovery Call Checklist: What to Cover Before Writing a Single Line of Code',
+    excerpt: 'Skipping a proper discovery phase is the fastest way to build the wrong thing. Here\'s the framework we use with every new client to make sure we\'re aligned on what success actually looks like.',
+    category: 'Process',
+    date: 'February 27, 2026',
+    readTime: '5 min read',
+    gradient: 'from-emerald-500 to-teal-600',
+    slug: 'discovery-call-checklist',
+  },
+  {
+    title: 'Designing for Trust: How Small UI Details Affect Conversion on B2B Landing Pages',
+    excerpt: 'Trust signals, whitespace, social proof placement — we analyzed 20 B2B landing pages to identify the patterns that consistently outperform.',
+    category: 'Design',
+    date: 'February 12, 2026',
+    readTime: '7 min read',
+    gradient: 'from-pink-500 to-rose-600',
+    slug: 'designing-for-trust-b2b-landing-pages',
+  },
+  {
+    title: 'Building a RAG Pipeline on a Startup Budget: Lessons from the Field',
+    excerpt: 'LLM-powered features don\'t have to cost a fortune. We share the architecture decisions, trade-offs, and tooling choices that let us ship a production RAG system for under $500/month.',
+    category: 'AI & Data',
+    date: 'January 30, 2026',
+    readTime: '10 min read',
+    gradient: 'from-amber-500 to-orange-500',
+    slug: 'rag-pipeline-startup-budget',
+  },
+];
+
+const categories = ['All', 'Engineering', 'Cloud & DevOps', 'Design', 'Process', 'AI & Data'];
+---
+
+<Layout title="Blog — Zerabit Solutions" description="Engineering insights, product lessons, and behind-the-scenes content from the Zerabit team.">
+  <Nav activePage="/blog" />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gray-950 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="hero-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
+      <div aria-hidden="true" class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-indigo-600 opacity-10 blur-3xl pointer-events-none animate-pulse-slow"></div>
+      <div class="relative max-w-6xl mx-auto">
+        <div class="max-w-2xl reveal-up">
+          <span class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+            Zerabit Blog
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+            Ideas worth<br />
+            <span class="hero-gradient-text">shipping</span>
+          </h1>
+          <p class="text-lg text-gray-400 leading-relaxed">
+            Engineering insights, product lessons, and behind-the-scenes content from the Zerabit team.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category filter -->
+    <section class="sticky top-16 z-40 bg-gray-950/95 backdrop-blur-xl border-b border-white/5 py-3 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-0.5">
+          {categories.map((cat, i) => (
+            <button
+              class={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${i === 0 ? 'bg-indigo-600 text-white' : 'bg-gray-800/60 border border-gray-700/60 text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600'}`}
+              type="button"
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Posts grid -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-950">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Featured post -->
+        <div class="mb-10 reveal-up">
+          <a href={`/blog/${posts[0].slug}`} class="group block rounded-2xl bg-gray-900/60 border border-gray-800/60 hover:border-gray-700/80 hover:bg-gray-900 transition-all duration-300 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <!-- Image placeholder -->
+              <div class={`relative bg-gradient-to-br ${posts[0].gradient} opacity-80 aspect-[16/9] lg:aspect-auto lg:min-h-[240px] flex items-center justify-center`}>
+                <div aria-hidden="true" class="absolute inset-0 hero-grid opacity-20"></div>
+                <span class="relative text-white/30 text-7xl font-extrabold select-none">01</span>
+              </div>
+              <!-- Content -->
+              <div class="p-8 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class={`inline-block px-2.5 py-1 rounded-full bg-gradient-to-r ${posts[0].gradient} text-white text-xs font-semibold`}>{posts[0].category}</span>
+                    <span class="text-xs text-gray-500">Featured</span>
+                  </div>
+                  <h2 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors duration-200 leading-snug">{posts[0].title}</h2>
+                  <p class="text-sm text-gray-400 leading-relaxed">{posts[0].excerpt}</p>
+                </div>
+                <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-800/60">
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span>{posts[0].date}</span>
+                    <span>·</span>
+                    <span>{posts[0].readTime}</span>
+                  </div>
+                  <span class="text-xs text-indigo-400 font-medium group-hover:underline">Read more →</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Remaining posts grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
+          {posts.slice(1).map((post, i) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="group block rounded-2xl bg-gray-900/60 border border-gray-800/60 hover:border-gray-700/80 hover:bg-gray-900 transition-all duration-300 hover:-translate-y-1 overflow-hidden reveal-up"
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              <!-- Image placeholder -->
+              <div class={`relative bg-gradient-to-br ${post.gradient} opacity-70 aspect-[16/7] flex items-center justify-center`}>
+                <div aria-hidden="true" class="absolute inset-0 hero-grid opacity-20"></div>
+                <span class="relative text-white/20 text-6xl font-extrabold select-none">0{i + 2}</span>
+              </div>
+              <!-- Content -->
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class={`inline-block px-2.5 py-1 rounded-full bg-gradient-to-r ${post.gradient} text-white text-xs font-semibold`}>{post.category}</span>
+                </div>
+                <h2 class="text-base font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-200 leading-snug">{post.title}</h2>
+                <p class="text-sm text-gray-400 leading-relaxed line-clamp-2">{post.excerpt}</p>
+                <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-800/60">
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span>{post.date}</span>
+                    <span>·</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <span class="text-xs text-indigo-400 font-medium group-hover:underline">Read →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Pagination placeholder -->
+        <div class="mt-12 flex items-center justify-center gap-2 reveal-up">
+          <button class="w-9 h-9 rounded-lg bg-indigo-600 text-white text-sm font-semibold flex items-center justify-center" type="button" aria-current="page">1</button>
+          <button class="w-9 h-9 rounded-lg bg-gray-800/60 border border-gray-700/60 text-gray-400 hover:text-white hover:bg-gray-800 text-sm font-semibold flex items-center justify-center transition-colors duration-200" type="button">2</button>
+          <button class="w-9 h-9 rounded-lg bg-gray-800/60 border border-gray-700/60 text-gray-400 hover:text-white hover:bg-gray-800 text-sm font-semibold flex items-center justify-center transition-colors duration-200" type="button">3</button>
+          <span class="text-gray-600 px-1">…</span>
+          <button class="px-4 h-9 rounded-lg bg-gray-800/60 border border-gray-700/60 text-gray-400 hover:text-white hover:bg-gray-800 text-sm font-semibold flex items-center gap-1.5 transition-colors duration-200" type="button">
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter / CTA -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div class="max-w-2xl mx-auto text-center reveal-up">
+        <span class="inline-block mb-4 text-indigo-400 text-sm font-semibold uppercase tracking-wider">Stay in the loop</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">Get new posts in your inbox</h2>
+        <p class="text-gray-400 mb-8 leading-relaxed">No fluff. Engineering-first content dropped roughly twice a month.</p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="return false;" aria-label="Newsletter signup">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            required
+            class="flex-1 px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm transition-colors duration-200 hover:border-gray-600"
+            aria-label="Email address"
+          />
+          <button
+            type="submit"
+            class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-500 transition-all duration-200 whitespace-nowrap shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="mt-3 text-xs text-gray-600">Unsubscribe at any time. No spam.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
+  </script>
+</Layout>

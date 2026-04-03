@@ -1,0 +1,271 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const stats = [
+  { value: '50+', label: 'Projects shipped', description: 'Across startups and enterprise teams worldwide' },
+  { value: '98%', label: 'Client retention', description: 'Our clients keep coming back — and referring others' },
+  { value: '3×', label: 'Faster time-to-market', description: 'Compared to building an in-house team from scratch' },
+  { value: '24/7', label: 'Dedicated support', description: 'Always-on coverage for critical production systems' },
+];
+
+const values = [
+  {
+    title: 'Craft over shortcuts',
+    description: 'We take pride in code quality, system design, and user experience. Fast is good; fast and well-built is better.',
+    gradient: 'from-indigo-500 to-violet-600',
+  },
+  {
+    title: 'Radical transparency',
+    description: 'No smoke and mirrors. We share progress openly, surface problems early, and always tell you what we think — not what you want to hear.',
+    gradient: 'from-sky-500 to-blue-600',
+  },
+  {
+    title: 'Outcomes, not outputs',
+    description: 'We measure success by the business impact of what we ship, not the number of tickets closed.',
+    gradient: 'from-emerald-500 to-teal-600',
+  },
+  {
+    title: 'Long-term partnership',
+    description: 'The best client relationships grow over years. We invest in understanding your business deeply so we can keep making the right calls.',
+    gradient: 'from-amber-500 to-orange-500',
+  },
+];
+
+const team = [
+  {
+    name: 'Alex Rivera',
+    role: 'Co-founder & CTO',
+    bio: '15 years building distributed systems at scale. Previously led engineering at two Y Combinator-backed startups.',
+    initials: 'AR',
+    gradient: 'from-indigo-500 to-violet-600',
+  },
+  {
+    name: 'Jordan Lee',
+    role: 'Co-founder & Design Lead',
+    bio: 'Obsessed with the intersection of engineering and design. Shipped products used by millions across fintech and healthtech.',
+    initials: 'JL',
+    gradient: 'from-pink-500 to-rose-600',
+  },
+  {
+    name: 'Sam Okafor',
+    role: 'Head of Engineering',
+    bio: 'Full-stack engineer with deep expertise in cloud infrastructure and developer experience. Open-source contributor.',
+    initials: 'SO',
+    gradient: 'from-emerald-500 to-teal-600',
+  },
+  {
+    name: 'Morgan Chen',
+    role: 'Head of Delivery',
+    bio: 'Keeps projects on track and clients delighted. Expert at translating business requirements into actionable engineering work.',
+    initials: 'MC',
+    gradient: 'from-amber-500 to-orange-500',
+  },
+  {
+    name: 'Taylor Brooks',
+    role: 'Senior Engineer',
+    bio: 'Backend specialist with a knack for API design and data-intensive applications. Loves a good architecture diagram.',
+    initials: 'TB',
+    gradient: 'from-sky-500 to-blue-600',
+  },
+  {
+    name: 'Casey Nguyen',
+    role: 'UI Engineer',
+    bio: 'Bridging the gap between design and code. Expert in React, Astro, and animation-rich interfaces.',
+    initials: 'CN',
+    gradient: 'from-violet-500 to-purple-600',
+  },
+];
+---
+
+<Layout title="About — Zerabit Solutions" description="Learn the story, values, and team behind Zerabit Solutions — the software partner for ambitious teams.">
+  <Nav activePage="/about" />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gray-950 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="hero-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
+      <div aria-hidden="true" class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-violet-600 opacity-10 blur-3xl pointer-events-none animate-pulse-slow"></div>
+      <div class="relative max-w-6xl mx-auto">
+        <div class="max-w-3xl reveal-up">
+          <span class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+            Our story
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+            Built by engineers,<br />
+            <span class="hero-gradient-text">for builders</span>
+          </h1>
+          <p class="text-lg text-gray-400 max-w-2xl leading-relaxed">
+            Zerabit was founded on a simple belief: great software comes from people who genuinely care about the craft — and the clients they build it for.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal-up">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-5 tracking-tight">How it started</h2>
+          <div class="space-y-4 text-gray-400 leading-relaxed">
+            <p>
+              Zerabit started in 2019 when our founders kept seeing the same problem: talented teams wasting months searching for the right technical partner, only to end up with bloated agencies or developers who disappeared after launch.
+            </p>
+            <p>
+              They set out to build something different — a lean, senior team that operates as a true extension of your company. No juniors unsupervised on production code. No handoff and goodbye. Just deep partnership from day one to long after go-live.
+            </p>
+            <p>
+              Five years and 50+ projects later, that commitment to quality and partnership is still the foundation of everything we do.
+            </p>
+          </div>
+        </div>
+        <!-- Decorative visual placeholder -->
+        <div class="reveal-up" style="animation-delay: 150ms;">
+          <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-950 to-gray-900 border border-white/5 p-10 aspect-[4/3] flex items-center justify-center">
+            <div aria-hidden="true" class="absolute inset-0 hero-grid opacity-30"></div>
+            <div class="relative text-center">
+              <div class="text-6xl font-extrabold text-white tracking-tight mb-2">
+                <span class="text-indigo-400">Z</span>erabit<span class="text-indigo-400">.</span>
+              </div>
+              <p class="text-gray-500 text-sm">Founded 2019 · Remote-first · Global</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 reveal-up">
+          <span class="inline-block mb-3 text-indigo-400 text-sm font-semibold uppercase tracking-wider">What drives us</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Mission & values</h2>
+          <p class="text-gray-400 max-w-xl mx-auto text-lg leading-relaxed">
+            Our mission: help ambitious teams ship better software, faster — without sacrificing quality or trust.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {values.map((v, i) => (
+            <div
+              class="group relative p-6 rounded-2xl bg-gray-900/60 border border-gray-800/60 hover:border-gray-700/80 hover:bg-gray-900 transition-all duration-300 reveal-up"
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              <div class={`inline-block w-1 h-8 rounded-full bg-gradient-to-b ${v.gradient} mb-4`}></div>
+              <h3 class="text-base font-semibold text-white mb-2">{v.title}</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">{v.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 reveal-up">
+          <span class="inline-block mb-3 text-indigo-400 text-sm font-semibold uppercase tracking-wider">By the numbers</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Impact at a glance</h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden reveal-up-delay">
+          {stats.map((s) => (
+            <div class="bg-gray-900/80 px-6 py-8 text-center hover:bg-white/5 transition-colors duration-200">
+              <div class="text-4xl font-extrabold text-white mb-1">{s.value}</div>
+              <div class="text-sm font-semibold text-indigo-400 mb-2">{s.label}</div>
+              <div class="text-xs text-gray-500 leading-relaxed">{s.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 reveal-up">
+          <span class="inline-block mb-3 text-indigo-400 text-sm font-semibold uppercase tracking-wider">The team</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Who you'll work with</h2>
+          <p class="text-gray-400 max-w-xl mx-auto text-lg leading-relaxed">
+            Senior engineers and designers who've been in the trenches. No bait-and-switch.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {team.map((member, i) => (
+            <div
+              class="group p-6 rounded-2xl bg-gray-900/60 border border-gray-800/60 hover:border-gray-700/80 hover:bg-gray-900 transition-all duration-300 hover:-translate-y-1 reveal-up"
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              <div class={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${member.gradient} items-center justify-center mb-5 text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform duration-300`}>
+                {member.initials}
+              </div>
+              <h3 class="text-base font-semibold text-white mb-0.5">{member.name}</h3>
+              <p class="text-xs text-indigo-400 font-semibold mb-3">{member.role}</p>
+              <p class="text-sm text-gray-400 leading-relaxed">{member.bio}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Culture imagery placeholder -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal-up">
+          {['Remote-first culture', 'Async by default', 'Annual team retreats'].map((label, i) => (
+            <div
+              class={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${i === 0 ? 'from-indigo-950 to-gray-900' : i === 1 ? 'from-violet-950 to-gray-900' : 'from-sky-950 to-gray-900'} border border-white/5 aspect-[16/9] flex items-end p-5`}
+            >
+              <div aria-hidden="true" class="absolute inset-0 hero-grid opacity-20"></div>
+              <span class="relative text-sm font-semibold text-gray-300">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-gray-950">
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-gray-950 to-violet-950 opacity-80"></div>
+      <div class="relative max-w-3xl mx-auto text-center reveal-up">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Want to work with us?</h2>
+        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+          We're always looking for great clients to partner with and great people to join the team.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5"
+          >
+            Start a project
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="/careers"
+            class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+          >
+            View open roles
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('.reveal-up, .reveal-up-delay').forEach((el) => observer.observe(el));
+  </script>
+</Layout>
