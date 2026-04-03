@@ -38,6 +38,34 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## CI/CD & Deployment
+
+### GitHub Actions CI
+
+A CI workflow runs automatically on every push and pull request to `main` and `dev`:
+
+- **Install**: `npm ci`
+- **Build**: `npm run build` — PR merges are blocked if the build fails
+- **Lint**: `npm run lint` (skipped if not configured)
+
+Workflow file: `.github/workflows/ci.yml`
+
+### Vercel Deployment
+
+The project is connected to Vercel for automatic deployments:
+
+- Pushes to `main` trigger a **production deployment** (auto-deploys within ~2 minutes)
+- Pushes to `dev` trigger a **preview deployment**
+
+### Branch Strategy
+
+| Branch | Purpose |
+| :----- | :------ |
+| `main` | Production — deploys to live site |
+| `dev`  | Integration — feature branches merge here first |
+
+All code changes go through `dev` first, then are merged to `main` via PR after review.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
