@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Custom Software Development',
+    tagline: 'End-to-end web & mobile applications',
+    description:
+      'We partner with you from discovery through deployment to build software that fits your exact workflows. Whether you need a customer-facing product, an internal tool, or a full SaaS platform, our engineers deliver production-ready code without cutting corners.',
+    useCases: ['SaaS platforms', 'Internal tools & dashboards', 'Mobile applications', 'E-commerce systems'],
+    deliverables: ['Architecture design docs', 'Iterative sprint releases', 'Test coverage & CI/CD setup', 'Post-launch support'],
+    tech: ['React / Next.js', 'Node.js / Go / Python', 'PostgreSQL / MongoDB', 'TypeScript'],
+    gradient: 'from-indigo-500 to-violet-600',
+    shadow: 'shadow-indigo-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+    </svg>`,
+  },
+  {
+    title: 'Cloud & DevOps',
+    tagline: 'Scalable infrastructure, zero-downtime deploys',
+    description:
+      'Reliable, cloud-native infrastructure that scales with your growth. We design architectures on AWS, GCP, or Azure and automate everything from provisioning to deployment — so your team ships faster and sleeps better.',
+    useCases: ['Startup infrastructure bootstrapping', 'Cloud migrations', 'Kubernetes orchestration', 'Multi-region deployments'],
+    deliverables: ['Terraform / IaC configs', 'CI/CD pipeline setup', 'Monitoring & alerting', 'Runbooks & documentation'],
+    tech: ['AWS / GCP / Azure', 'Kubernetes & Docker', 'Terraform', 'GitHub Actions / ArgoCD'],
+    gradient: 'from-sky-500 to-blue-600',
+    shadow: 'shadow-sky-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+    </svg>`,
+  },
+  {
+    title: 'UI/UX Design',
+    tagline: 'Beautiful interfaces that convert',
+    description:
+      'Design is not decoration — it is strategy. We craft user experiences that reduce friction, increase engagement, and make your product a joy to use. Every pixel is intentional, every flow is tested.',
+    useCases: ['Product redesigns', 'Design systems', 'Landing pages', 'Accessibility audits'],
+    deliverables: ['Wireframes & prototypes', 'Figma design files', 'Component libraries', 'Usability test reports'],
+    tech: ['Figma', 'Framer', 'Storybook', 'WCAG 2.1 compliance'],
+    gradient: 'from-pink-500 to-rose-600',
+    shadow: 'shadow-pink-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+    </svg>`,
+  },
+  {
+    title: 'API & Integration',
+    tagline: 'Connect your stack seamlessly',
+    description:
+      'Your tools should work together. We build robust APIs and integrations that eliminate silos, automate workflows, and keep your data flowing — without the duct tape.',
+    useCases: ['Third-party API integrations', 'Internal microservices', 'Data pipelines', 'Webhook systems'],
+    deliverables: ['OpenAPI / GraphQL schemas', 'SDK & client libraries', 'Integration test suites', 'API documentation'],
+    tech: ['REST / GraphQL', 'gRPC', 'Stripe, Twilio, Salesforce', 'Event-driven / Kafka'],
+    gradient: 'from-amber-500 to-orange-600',
+    shadow: 'shadow-amber-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+    </svg>`,
+  },
+  {
+    title: 'AI & Data Engineering',
+    tagline: 'Turn your data into competitive advantage',
+    description:
+      'From LLM-powered features to full ML pipelines, we help you harness AI in ways that create real business value. We skip the buzzwords and focus on outcomes.',
+    useCases: ['LLM / RAG applications', 'Predictive analytics', 'Data warehousing', 'ML model deployment'],
+    deliverables: ['Model training pipelines', 'Evaluation frameworks', 'Analytics dashboards', 'Data quality reports'],
+    tech: ['Python / PyTorch', 'OpenAI / Anthropic APIs', 'dbt / Airflow', 'Snowflake / BigQuery'],
+    gradient: 'from-emerald-500 to-teal-600',
+    shadow: 'shadow-emerald-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L4.2 13.914m15.6 1.386-.398 2.45a2.25 2.25 0 0 1-2.25 1.974H6.848a2.25 2.25 0 0 1-2.25-1.974L4.2 15.3" />
+    </svg>`,
+  },
+  {
+    title: 'Maintenance & Support',
+    tagline: 'Keep your product fast, secure, and up to date',
+    description:
+      'Shipping is not the finish line. We provide ongoing monitoring, proactive security patching, performance tuning, and a dedicated support channel so your product stays healthy long after launch.',
+    useCases: ['Legacy codebase modernisation', 'Performance audits', 'Security patching', '24/7 on-call support'],
+    deliverables: ['Monthly health reports', 'Uptime SLA', 'Incident post-mortems', 'Quarterly roadmap reviews'],
+    tech: ['Datadog / Grafana', 'Sentry', 'PagerDuty', 'Dependabot / Renovate'],
+    gradient: 'from-violet-500 to-purple-600',
+    shadow: 'shadow-violet-500/20',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l5.654-4.654m5.14-6.33a2.97 2.97 0 0 0-1.044.57c-.437.353-.75.71-.967 1.01M7.5 4.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm.375 0a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+    </svg>`,
+  },
+];
+---
+
+<Layout title="Services — Zerabit Solutions" description="Explore Zerabit's full range of software development services, from custom engineering to cloud infrastructure, AI, and ongoing support.">
+  <Nav activePage="/services" />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gray-950 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="hero-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
+      <div aria-hidden="true" class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-indigo-600 opacity-10 blur-3xl pointer-events-none animate-pulse-slow"></div>
+      <div class="relative max-w-6xl mx-auto">
+        <div class="max-w-3xl reveal-up">
+          <span class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+            What we do
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+            Services built<br />
+            <span class="hero-gradient-text">for scale</span>
+          </h1>
+          <p class="text-lg text-gray-400 max-w-2xl leading-relaxed mb-8">
+            From product concept to production deployment — Zerabit covers the full stack so you can focus on growing your business.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5"
+          >
+            Start a conversation
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services detail -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950">
+      <div class="max-w-6xl mx-auto space-y-16">
+        {services.map((s, i) => (
+          <div class={`group grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal-up`} style={`animation-delay: ${i * 60}ms`}>
+            <!-- Left: info -->
+            <div>
+              <div class={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${s.gradient} items-center justify-center mb-5 text-white shadow-lg ${s.shadow}`}>
+                <div class="w-6 h-6" set:html={s.icon} />
+              </div>
+              <h2 class="text-2xl font-bold text-white mb-1">{s.title}</h2>
+              <p class={`text-sm font-semibold mb-4 bg-gradient-to-r ${s.gradient} bg-clip-text`} style="-webkit-text-fill-color: transparent;">{s.tagline}</p>
+              <p class="text-gray-400 leading-relaxed mb-6">{s.description}</p>
+              <a
+                href="/contact"
+                class={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r ${s.gradient} text-white text-sm font-semibold hover:opacity-90 transition-opacity duration-200 shadow-md ${s.shadow}`}
+              >
+                Book a call about this service
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Right: details -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="rounded-xl bg-gray-900/60 border border-gray-800/60 p-5">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Use cases</h3>
+                <ul class="space-y-2">
+                  {s.useCases.map((u) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-300">
+                      <span class={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-br ${s.gradient} flex-shrink-0`}></span>
+                      {u}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-xl bg-gray-900/60 border border-gray-800/60 p-5">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Deliverables</h3>
+                <ul class="space-y-2">
+                  {s.deliverables.map((d) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-300">
+                      <span class={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-br ${s.gradient} flex-shrink-0`}></span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-xl bg-gray-900/60 border border-gray-800/60 p-5">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Relevant tech</h3>
+                <ul class="space-y-2">
+                  {s.tech.map((t) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-300">
+                      <span class={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-br ${s.gradient} flex-shrink-0`}></span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {i < services.length - 1 && (
+              <div class="lg:col-span-2 border-b border-gray-800/60"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-indigo-950 via-gray-900 to-violet-950 opacity-60"></div>
+      <div class="relative max-w-3xl mx-auto text-center reveal-up">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Not sure which service fits?</h2>
+        <p class="text-gray-400 text-lg mb-8 leading-relaxed">Book a free 30-minute discovery call. We'll listen to what you're building and recommend the best path forward.</p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-gray-900 text-base font-bold hover:bg-gray-100 transition-all duration-200 shadow-2xl hover:-translate-y-0.5"
+        >
+          Book a free discovery call
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
+  </script>
+</Layout>

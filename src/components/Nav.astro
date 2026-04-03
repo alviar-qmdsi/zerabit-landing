@@ -1,0 +1,92 @@
+---
+export interface Props {
+  activePage?: string;
+}
+const { activePage = '' } = Astro.props;
+
+const navLinks = [
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/careers', label: 'Careers' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-gray-950/80 backdrop-blur-xl">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-1 text-xl font-bold tracking-tight text-white">
+      <span class="text-indigo-400">Z</span>erabit<span class="text-indigo-400">.</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`hover:text-white transition-colors duration-200 ${activePage === link.href ? 'text-white' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors duration-200"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <a
+      href="/contact"
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
+    >
+      Get in touch
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+      </svg>
+    </a>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-white/10 bg-gray-950/95 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${activePage === link.href ? 'text-white bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/contact"
+        class="mt-2 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition-all duration-200"
+      >
+        Get in touch
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  });
+</script>
